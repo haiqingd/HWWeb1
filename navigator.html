@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>导航栏</title>
+	<style type="text/css">
+		ul,li{
+			margin: 0;padding: 0;
+			list-style: none;
+			/*去掉前面那个小圆点*/
+		}
+		ul li:hover{
+			background: yellow;color:#000;
+		}
+		/*鼠标经过时变色*/
+		ul.a>li:hover ul.b{
+			display: block;
+		}
+		/*先隐藏起来（见下文的display：none），鼠标经过的时候显示b列表*/
+		ul.a{
+			width: 1000px;
+		}
+		.a>li{
+			margin-left: 2px;
+			float: left;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			font-size: 30px;
+			color: white;
+			background: #444444;
+			padding-right: 120px;
+			padding-left: 120px;
+			position: relative; 
+		}
+		ul.b{
+			position: absolute;
+			/*使b列表与a列表同宽*/
+			left: 0;
+			right: 0;
+			top: 100px;
+			display: none;
+			/*先将b列表赢藏*/
+		}
+		.b li{
+			box-shadow:10px 3px 10px #DDDDDD;
+			/*添加阴影*/
+			float: none;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			font-size: 30px;
+			color: #000;
+			background: white;
+			border-top: 1px solid grey;
+			/*添加两行列表之间的分割栏*/
+		}
+	</style>
+</head>
+<body>
+	<ul class="a">
+		<li>前端
+				<ul class="b">
+				<li>HTML5</li>
+				<li>CSS3</li>
+				<li>JAVASCRIPT</li>
+			</ul>	
+		</li>
+		<!-- 在a类的“前端”中嵌套b类列表，下同 -->
+		<li>后端
+			<ul class="b">
+				<li>JAVA</li>
+				<li>PHP</li>
+				<li>Python</li>
+			</ul>
+		</li>
+		<li>移动端
+				<ul class="b">
+				<li>Andriod</li>
+				<li>IOS</li>
+				<li>React-Native</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>  
+<head> 
+	<title>choose img</title>  
+	<script type="text/javascript" charset="utf-8">  
+		function readAsDataURL()  
+		{  
+    		if(typeof FileReader=='undifined')          //判断浏览器是否支持filereader  
+    		{  
+       			result.innerHTML="<p>抱歉，你的浏览器不支持 FileReader</p>";  
+        		return false;  
+    		}  
+    		var file=document.getElementById("imagefile").files[0];  
+    		var reader=new FileReader();  
+    		reader.readAsDataURL(file);  
+    		reader.onload=function(e)  
+    		{  
+       			var result=document.getElementById("result");  
+        		result.innerHTML='<img src="'+this.result+'" alt=""/>'  
+    		}  
+      
+		}  
+	</script>  
+</head>   
+<body>  
+	<p>  
+    	<input type="file" id="imagefile" />  
+    	<input type="button" value="读取" onClick="readAsDataURL();" />  
+	</p>
+	<div name="result" id="result">  
+    <!-- 这里用来显示图片结果-->  
+	</div>  
+</body>  
+</html>  
